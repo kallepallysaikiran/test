@@ -1,0 +1,352 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h1>SEARCH PAGE</h1> 
+ <form method="post" action="/search1">
+    <label for="name">Enter Name:</label>
+    <input type="text" id="name" name="name">
+    <input type="submit" value="Search">
+    <button type="button" onclick="clearDisplay()">Clear</button>
+  </form>
+  <script>
+    function clearDisplay() {
+      document.getElementById('display').innerHTML = '';
+    }
+  </script>
+  <div id="display">
+    {% if data %}
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Branch</th>
+        <th>Address</th>
+      </tr>
+      <tr>
+        <td>{{ data[0] }}</td>
+        <td>{{ data[1] }}</td>
+        <td>{{ data[2] }}</td>
+        <td>{{ data[3] }}</td>
+        <td>{{ data[4] }}</td>
+        <td>{{ data[5] }}</td>
+      </tr>
+    </table>
+    {% endif %}
+  </div>  
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+      
+<head>
+	<title>SEARCH PAGE</title>
+  <style>
+    @font-face{
+    font-family: "Myfont1";
+    src: url("saikiran-UltraItalic.otf");
+  }
+  @font-face{
+    font-family: "Myfont";
+    src: url("saikiran-Black.otf");
+  }
+  
+  @font-face{
+    font-family: "myfont3";
+    src: url("new.ttf");
+  }
+  body {
+      background-color: #887ef3;
+      color: #371744;
+    /* background: url("newbackground"); */
+      margin: 0;
+    font-family: "myfont3";
+      padding: 0;
+  }
+  
+    /* Header styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      font-family: "MyFont";
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      width: 100%;
+      z-index: 9999;
+    }
+    
+    .header-back {
+      color:#033b69 ;
+      background-color: #a792e7;
+      padding: 7px;
+      padding-inline: 100%;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+    }
+    
+    header h1 {
+      color: #212c92;
+      font-family: "myfont3";
+      font-size: 50px;
+      text-shadow: 4px 4px 4px #51799e;
+    }
+    
+    .text-background {
+      background-color: #0b2c99;
+      padding: 7px;
+      padding-inline: 100%;
+      font-family: "MyFont";
+    }
+    
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    
+    nav li {
+      margin: 0 10px;
+      position: relative;
+    }
+    
+  
+    nav a {
+      color: #c4d8df;
+      text-shadow: 2px 2px 2px #02082c;
+      text-decoration: none;
+      position: relative;
+    }
+    
+  
+    
+    .dropdown {
+      position: relative;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #35263aa2;
+      min-width: 160px;
+      z-index: 1;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    .dropdown-content a {
+      color: #1b1331;
+      padding: 12px 16px;
+      display: block;
+    }
+  
+    
+    nav li {
+      /* text-shadow: #ffffff; */
+      display: inline-block;
+      border-right: 5px solid #000000;
+      margin-right: 10px;
+      padding-right: 50px;
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+    
+    nav li:last-child {
+      border-right: none;
+    }
+    nav li:last-child {
+      border-right: none;
+    }
+    
+    nav ul li .dropbtn {
+      display: inline-block;
+      /* border-right: 5px solid #ffffff; */
+      /* margin-right: 30px;
+      padding-right: 40px;
+      margin-left: 30px;
+      padding-left: 30px; */
+    }
+    
+    nav ul li .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 60px;
+      z-index: 1;
+      background-color: #9b9b9bd8;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgb(48, 46, 50);
+      left: 0;
+    }
+    
+    nav ul li:hover .dropdown-content {
+      display: block;
+    }
+  
+    
+  
+  main {
+      padding: 20px;
+  }
+  
+  .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+  }
+  
+  section {
+      flex-basis: 30%;
+      margin: 20px 0;
+  }
+  .heading{
+    padding-top: 100px;
+    text-align: center;
+    font-size: 40px;
+  }
+  
+  h3 {
+      color: #ebbbf9;
+      font-size: 40px;
+      text-align: center;
+      margin: 0px;
+      position: relative;
+      right: 30px;
+  }
+  
+  ul {
+      list-style: none;
+      padding: 20;
+      margin : 40px;
+      position: relative;
+      left: 20px;
+  }
+  
+  footer
+{
+    position: fixed;
+    text-align: center;
+    background-color: #033b69;
+    color: white;
+    bottom: 0px;
+    width: 100%;
+    height: 90px;
+}
+  
+  .text 
+  {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      color: #1d437a;
+      font-size: 80px;
+      font-family: "MyFont3";
+      text-shadow: 2px 2px 4px #e6dfec;
+      text-align: center;
+  }
+  
+  .text:hover
+  {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      color: #8209f3;
+      font-size: 80px;
+      font-family: "MyFont3";
+      text-shadow: 2px 2px 4px #b6a4bb;
+      text-align: center;
+  }
+  
+  
+  </style>
+	
+</head>
+
+
+<header>
+	<div class="header-back">
+	  <h1>CONTACT DIRECTORY</sub></h1>
+	</div>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='about.css') }}">
+	<div class="text-background">
+	  <nav>
+		<ul>
+		  <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropbtn">Add</a>
+        <div class="dropdown-content">
+          <a href="students.html">Students</a>
+          <a href="faculties.html">Faculty</a>
+        </div>
+        </li>
+        <li><a href="display.html">Students</a></li>
+        <li><a href="display1.html">Faculty</a></li>
+        <li><a href="search1.html">Search Student</a></li>
+        <li><a href="search2.html">Search Faculty</a></li>
+        <li><a href="edit.html">Edit Student</a></li>
+        <li><a href="edit2.html">Edit Faculty</a></li>
+		</ul>
+	  </nav>
+	</div>
+</header>
+
+<body>
+	<div class="text"><b>SEARCH STUDENT</b></div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <form method="post" action="/search1">
+        <label for="name" style="margin-left: 34%;font-size: 25px;">Enter Name:</label>
+        <input type="text" id="name" name="name" style="margin-left: 1%;font-size: 25px;">
+        <br><br>
+        <input type="submit" value="Search" style="margin-left: 44%;font-size: 25px;">
+        <button type="button" onclick="clearDisplay()" style="margin-left: 1%;font-size: 25px;">Clear</button>
+      </form>
+      <script>
+        function clearDisplay() {
+          document.getElementById('display').innerHTML = '';
+        }
+      </script>
+      <br><br>
+      <div id="display">
+        {% if data %}
+        <table style="text-align: center;margin-left: 26%;font-size: 30px;">
+          <tr>
+            <th>Name&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Roll No&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Email&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Contact&nbsp;&nbsp;&nbsp;&nbsp;</th>
+            <th>Branch</th>
+          </tr>
+          <tr>
+            <td>{{ data[1] }}</td>
+            <td>{{ data[2] }}</td>
+            <td>{{ data[3] }}</td>
+            <td>{{ data[4] }}</td>
+            <td>{{ data[5] }}</td>
+          </tr>
+        </table>
+        {% endif %}
+      </div>  
+</body>      
+
+
+</html>

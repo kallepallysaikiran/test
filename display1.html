@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Student Data</title>
+  </head>
+
+  <header>
+    <div class="header-back">
+      <h1>CONTACT DIRECTORY</sub></h1>
+      
+    </div>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='display.css') }}">
+    <div class="text-background">
+      <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Add</a>
+          <div class="dropdown-content">
+            <a href="students.html">Students</a>
+            <a href="faculties.html">Faculty</a>
+          </div>
+          </li>
+          <li><a href="display.html">Students</a></li>
+          <li><a href="display1.html">Faculty</a></li>
+        <li><a href="search1.html">Search Student</a></li>
+        <li><a href="search2.html">Search Faculty</a></li>
+        <li><a href="edit.html">Edit Student</a></li>
+        <li><a href="edit2.html">Edit Faculty</a></li>
+      </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <body>
+    <div class="text"><b>Faculty</b></div>
+    <h1>Faculty Data</h1>
+    <div class="table-container">
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>Faculty Id</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Qualifications</th>
+        <th></th>
+      </tr>
+      {% for student in faculties %}
+      <tr>
+        <td>{{ student[1] }}</td>
+        <td>{{ student[2] }}</td>
+        <td>{{ student[3] }}</td>
+        <td>{{ student[4] }}</td>
+        <td>{{ student[5] }}</td>
+        <td>
+          <form method="POST" action="{{ url_for('deleteStudent1') }}">
+            <input type="hidden" name="id" value="{{ student[0] }}">
+            <button type="submit">DELETE</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  </body>
+</html>
+<!-- <footer>
+  <p style="font-size: 20px;">
+  We hope that our College Contact Directory has been a helpful resource for you in finding the contact information you need. Our goal is to provide accurate and up-to-date information for students, faculty, and staff. <br>Thank you for using our directory, and we wish you all the best in your academic pursuits.
+  </p>
+</footer> -->
